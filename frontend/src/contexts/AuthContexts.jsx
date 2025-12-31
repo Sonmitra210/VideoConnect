@@ -7,9 +7,9 @@ import server from "../environment";
 export const AuthContext = createContext({
 
 })
-
+const server = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 const client = axios.create({
-    baseURL : `${server}/api/v1/users`
+    baseURL : server
 })
 
 export const AuthProvider = ({children})=>{

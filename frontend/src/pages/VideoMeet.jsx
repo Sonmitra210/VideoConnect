@@ -12,7 +12,8 @@ import io from 'socket.io-client';
 
 import styles from "../styles/videoComponent.module.css"
 import { StopScreenShare } from '@mui/icons-material';
-import server from '../environment';
+
+const server = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
 const server_url = server;
 
