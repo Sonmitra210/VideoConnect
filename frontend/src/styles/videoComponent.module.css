@@ -1,0 +1,119 @@
+.meetVideoContainer{
+    position: relative;
+    height: 100vh;
+    background-color: rgb(45, 43, 43);
+}
+.meetUserVideo{
+    position: absolute;
+    bottom: 7vh;
+    height: 30% ;
+    left: 0;
+    border-radius: 1rem;
+}
+
+.conferenceView{
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+}
+.conferenceView video {
+    width: 30vw ;
+    min-width: 20vw;
+    height: 20vh;
+    border-radius: 1rem;
+}
+.buttonContainer{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+    text-align: center;
+    background-color: rgb(31, 30, 30);
+}
+.buttonContainer svg{
+    font-size: 3rem ;
+}
+.chatRoom{
+    position: absolute;
+    height: 92vh;
+    width: 20vw;
+    right: 0;
+    background-color: white;
+    border-radius: 0.7rem 0 0 0.7rem;
+    margin-top: 0.4rem;
+    padding-inline: 1rem;
+}
+.chatContainer{
+    position: relative;
+    height: 100%;;
+}
+.chattingArea{
+    flex-direction: row;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+
+}
+/* Centers the entire lobby in the viewport */
+.lobby_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f7f9;
+    padding: 20px;
+}
+
+/* Vertical stack for the elements */
+.lobby_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 640px;
+    gap: 24px;
+}
+
+.lobby_title {
+    font-family: 'Roboto', sans-serif;
+    color: #2c3e50;
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Styled video container */
+.video_wrapper {
+    width: 100%;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    aspect-ratio: 16 / 9; /* Maintains video shape before stream loads */
+}
+
+.local_video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    /* Mirrors the video so it feels natural to the user */
+    transform: scaleX(-1);
+}
+
+/* Horizontal alignment for input and button */
+.lobby_controls {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    align-items: center;
+}
+
+.connect_button {
+    height: 56px; /* Matches standard MUI TextField height */
+    padding-inline: 40px !important;
+    background-color: #FF9839 !important; /* Custom theme color */
+    font-weight: 600 !important;
+}
