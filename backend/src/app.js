@@ -16,7 +16,11 @@ const server=createServer(app);
 const io = connectToSocket(server)
 
 app.set("port" , (process.env.PORT || 8000));
-app.use(cors());
+app.use(cors({
+    origin: "https://videoconnectfrontend-l1r1.onrender.com", 
+    credentials: true, 
+    methods: ["GET", "POST", "PUT", "DELETE"]
+}));
 app.use(express.json({limit:"40kb"}));
 app.use(express.urlencoded({limit:"40kb", extended:true} ));
 
