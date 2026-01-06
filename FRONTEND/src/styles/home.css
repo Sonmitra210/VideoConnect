@@ -1,0 +1,33 @@
+.navBar{
+    background-color: rgb(234, 139, 56);
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    font-size: medium;
+}
+h2{
+    color: white;
+}
+.features{
+    display: flex;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+.history{
+    display: flex;
+    align-items: center;
+}
+.meetContainer{
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.leftPanel {
+    display: flex;
+    flex-direction: column;
+}
+.leftPanel h2{
+    font-size: 3rem;
+    color: rgb(23, 13, 114);
+}

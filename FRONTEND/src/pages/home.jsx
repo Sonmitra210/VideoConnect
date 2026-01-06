@@ -1,76 +1,83 @@
-import React, { useContext, useState } from 'react'
+import React, { useState , useContext } from 'react'
 import withAuth from '../utils/withAuth'
 import { useNavigate } from 'react-router-dom'
-import "../App.css";
 import { Button, IconButton, TextField } from '@mui/material';
 import RestoreIcon from '@mui/icons-material/Restore';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../../src/contexts/AuthContexts.jsx';
+import "../styles/home.css"
+ function HomeComponent() {
 
-function HomeComponent() {
-
-
-    let navigate = useNavigate();
-    const [meetingCode, setMeetingCode] = useState("");
-
-
-    const {addToUserHistory} = useContext(AuthContext);
-    let handleJoinVideoCall = async () => {
-        await addToUserHistory(meetingCode)
-        navigate(`/${meetingCode}`)
-    }
-
-    return (
-        <>
-
-            <div className="navBar">
-
-                <div style={{ display: "flex", alignItems: "center" }}>
-
-                    <h2>VideoConnect</h2>
-                </div>
-
-                <div style={{ display: "flex", alignItems: "center" }}>
-                    <IconButton onClick={
-                        () => {
-                            navigate("/history")
-                        }
-                    }>
-                        <RestoreIcon />
-                    </IconButton>
-                    <p>History</p>
-
-                    <Button onClick={() => {
-                        localStorage.removeItem("token")
-                        navigate("/auth")
-                    }}>
-                        Logout
-                    </Button>
-                </div>
+        let navigate = useNavigate();
+        const [meetingCode , setMeetingCode]= useState();
+        const {addToUserHistory} = useContext(AuthContext);
 
 
-            </div>
+        let handleVideoCall = async()=>{
+            await addToUserHistory(meetingCode)
+            navigate(`/${meetingCode}`) 
+        }
 
 
-            <div className="meetContainer">
-                <div className="leftPanel">
-                    <div>
-                        <h2>Providing Quality Video Call Just Like Quality Education</h2>
-
-                        <div style={{ display: 'flex', gap: "10px" }}>
-
-                            <TextField onChange={e => setMeetingCode(e.target.value)} id="outlined-basic" label="Meeting Code" variant="outlined" />
-                            <Button onClick={handleJoinVideoCall} variant='contained'>Join</Button>
+        return (
+            <>
+    
+                <div className="navBar">
+    
+                    <div style={{ display: "flex", alignItems: "center" }}>
+    
+                        <h2>VideoConnect</h2>
+                    </div>
+    
+                    <div className='features' style={{ display: "flex", alignItems: "center", position:"absolute" , right:"0"}}>
+                        <div className='history'>
+                            <IconButton onClick={
+                                () => {
+                                    navigate("/history")
+                                }
+                            }>
+                                <RestoreIcon />
+                            </IconButton>
+                            <p>History</p>
+                        </div>
+                        <div>
+                            <Button onClick={() => {
+                                localStorage.removeItem("token")
+                                navigate("/auth")
+                            }}>
+                                Logout
+                            </Button>
 
                         </div>
+    
+                    
                     </div>
+    
+    
                 </div>
-                <div className='rightPanel'>
-                    <img srcSet='/logo3.png' alt="" />
+    
+    
+                <div className="meetContainer">
+                    <div className='rightPanel'>
+                        <img srcSet='/calllogo.jpg' alt="" />
+                    </div>
+                    <div className="leftPanel">
+                        <div>
+                            <h2>Providing Quality Video Call For Everyone</h2>
+                            <br></br>
+                            <br></br>
+                        </div>
+                        
+                            <div style={{ display: 'flex', gap: "10px" }}>
+    
+                                <TextField onChange={e => setMeetingCode(e.target.value)} id="outlined-basic" label="Meeting Code" variant="outlined" />
+                                <Button onClick={handleVideoCall} variant='contained'>Join</Button>
+    
+                            </div>
+                        
+                    </div>
+                    
                 </div>
-            </div>
-        </>
-    )
+            </>
+        )
 }
-
-
-export default withAuth(HomeComponent)
+export default withAuth(HomeComponent);
