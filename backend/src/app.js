@@ -17,14 +17,14 @@ const io = connectToSocket(server)
 
 app.set("port" , (process.env.PORT || 8000));
 app.use(cors({
-    origin: "https://videoconnectfrontend-l1r1.onrender.com", 
+    origin: "*", 
     credentials: true, 
     methods: ["GET", "POST", "PUT", "DELETE"]
 }));
 app.use(express.json({limit:"40kb"}));
 app.use(express.urlencoded({limit:"40kb", extended:true} ));
 
-app.use("/api/v1/users" , userRoutes);
+app.use("/" , userRoutes);
 
 const start=async()=>{
     const connectionDB = await mongoose.connect(process.env.MONGO_URL);
