@@ -14,7 +14,7 @@ import styles from "../styles/videoComponent.module.css"
 import { StopScreenShare } from '@mui/icons-material';
 import server from '../environment';
 
-const server = server;
+// const server = server;
 
 const server_url = server;
 
