@@ -21,9 +21,9 @@ export default function Landing() {
                 <br></br>
                 <h3>Cover any distance by Video Connect</h3>
                 <br></br>
-                <a href='/auth'>
-                    <button>Get Started</button>
-                </a>
+                
+                    <button onClick={() => navigate('/auth', { state: { form: 1 } })}>Get Started</button>
+                
             </div>
             <div className='landingPageImage'>
                 <img src='/videocall.png'></img>
