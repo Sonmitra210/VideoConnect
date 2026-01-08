@@ -58,7 +58,7 @@ import "../styles/home.css"
     
                 <div className="meetContainer">
                     <div className='rightPanel'>
-                        <img srcSet='public/calllogo.jpg' alt="" />
+                        <img srcSet='/calllogo.jpg' alt="" />
                     </div>
                     <div className="leftPanel">
                         <div>
